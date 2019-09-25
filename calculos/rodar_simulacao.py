@@ -73,4 +73,4 @@ if __name__ == '__main__':
     renda_mensal_vitalicia = calcula_valor_renda_mensal_vitalicia(saldo, sexo, idade_saida)
     print()
     print(f'Saldo aos {idade_saida} anos: {saldo:0.2f}')
-    print(f'Renda vitalicia sem continuidade: {renda_mensal_vitalicia}')
+    print(f'Renda vitalicia sem continuidade: {renda_mensal_vitalicia:0.2f}')
