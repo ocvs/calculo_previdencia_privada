@@ -40,7 +40,6 @@ def calcula_evolucao_das_contribuicoes(idade_atual, idade_saida, rentabilidade_a
 
 def calcula_valor_renda_mensal_vitalicia(saldo, sexo, idade_saida):
     fator_conversao_em_renda = FAT('BREMS_NS', sexo, 'F', 0.02).ax[idade_saida]
-
     return saldo / fator_conversao_em_renda
 
 
