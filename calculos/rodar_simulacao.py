@@ -13,6 +13,7 @@ Tabua de sobrevivência
 taxa de juros da tábua
 
 """
+from decimal import Decimal
 
 from inputao import input as inputao
 
@@ -24,7 +25,7 @@ def calcula_diferimento_em_meses(idade_atual, idade_saida):
 
 
 def calcula_rentabilidade_mensal(rentabilidade_anual):
-    return ((1 + rentabilidade_anual / 100) ** (1 / 12)) - 1
+    return ((1 + rentabilidade_anual / 100) ** Decimal(1 / 12)) - 1
 
 
 def calcula_evolucao_das_contribuicoes(idade_atual, idade_saida, rentabilidade_anual, contribuicao_mensal):
@@ -39,8 +40,14 @@ def calcula_evolucao_das_contribuicoes(idade_atual, idade_saida, rentabilidade_a
 
 
 def calcula_valor_renda_mensal_vitalicia(saldo, sexo, idade_saida):
-    fator_conversao_em_renda = FAT('BREMS_NS', sexo, 'F', 0.02).ax[idade_saida]
+    fator_conversao_em_renda = Decimal(FAT('BREMS_NS', sexo, 'F', 0.02).ax[idade_saida])
     return saldo / fator_conversao_em_renda
+
+
+def calcula(idade_atual, idade_saida, rentabilidade_anual, contribuicao_mensal, sexo):
+    saldo = calcula_evolucao_das_contribuicoes(idade_atual, idade_saida, rentabilidade_anual, contribuicao_mensal)
+    renda_mensal_vitalicia = calcula_valor_renda_mensal_vitalicia(saldo, sexo, idade_saida)
+    return saldo, renda_mensal_vitalicia
 
 
 if __name__ == '__main__':
