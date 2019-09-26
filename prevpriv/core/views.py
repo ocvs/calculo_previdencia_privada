@@ -15,6 +15,6 @@ def simulator(request):
             'form': form,
         }
     else:
-        context = {}
+        context = {'form': form}
     
     return render(request, 'index.html', context)
