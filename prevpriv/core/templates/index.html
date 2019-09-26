@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simulador de Previdência Privada</title>
+</head>
+<body>
+
+{% if renda_mensal_vitalicia %}
+<h2>Saldo: {{saldo|floatformat:2}}</h2>
+<h2>Renda vitalicia sem continuidade: {{renda_mensal_vitalicia|floatformat:2}}</h2>
+{% endif %}
+
+<form action="." method="GET">
+    <p>
+        <label>Idade Atual:</label>
+        {{form.idade_atual}}
+    </p>
+
+    <p>
+        <label>Idade Saída:</label>
+        {{form.idade_saida}}
+    </p>
+
+    <p>
+        <label>Rentabilidade Anual:</label>
+        {{form.rentabilidade_anual}}
+    </p>
+
+    <p>
+        <label>Contribuição Mensal:</label>
+        {{form.contribuicao_mensal}}
+    </p>
+
+    <p>
+        <label>Sexo:</label>
+        {{form.sexo}}
+    </p>
+
+    <input type="submit" value="Simula..."/>
+</form>
+</body>
+</html>

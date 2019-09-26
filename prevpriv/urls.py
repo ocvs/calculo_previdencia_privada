@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from prevpriv.core.views import simulator
 
 urlpatterns = [
+    path('', simulator),
     path('admin/', admin.site.urls),
 ]
