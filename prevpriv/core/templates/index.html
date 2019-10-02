@@ -1,43 +1,79 @@
+{% load static %}
+{% load my_filters %}
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Simulador de Previdência Privada</title>
+    <meta name="author" content="simula">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/basalstyle/style.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+    <link href='http://fonts.googleapis.com/css?family=Economica:400,700' rel='stylesheet' type='text/css'>
+
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+
+
+    <script src="{% static 'js/jquery-1.11.0.min.js' %}"></script>
+    <script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+    <script src="{% static 'js/smooth-scroll.js' %}"></script>
+    <script src="{% static 'js/retina-1.1.0.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+
 </head>
 <body>
 
-{% if renda_mensal_vitalicia %}
-<h2>Saldo: {{saldo|floatformat:2}}</h2>
-<h2>Renda vitalicia sem continuidade: {{renda_mensal_vitalicia|floatformat:2}}</h2>
-{% endif %}
 
-<form action="." method="GET">
-    <p>
-        <label>Idade Atual:</label>
-        {{form.idade_atual}}
-    </p>
+<section>
 
-    <p>
-        <label>Idade Saída:</label>
-        {{form.idade_saida}}
-    </p>
+    <div class="content row padding-bottom-3 desktop-12 container">
+        {% if renda_mensal_vitalicia %}
+            <div class="desktop-12">
 
-    <p>
-        <label>Rentabilidade Anual:</label>
-        {{form.rentabilidade_anual}}
-    </p>
+                <h2>Resultados da simulação</h2>
+                <h3>Saldo: {{ saldo|currency }}</h3>
+                <h3>Renda vitalicia sem continuidade: {{ renda_mensal_vitalicia|currency }}</h3>
+            </div>
+        {% endif %}
+        <h1>Insira os dados para simulação</h1>
+        <div class="desktop-6">
+            <form action="." method="GET">
 
-    <p>
-        <label>Contribuição Mensal:</label>
-        {{form.contribuicao_mensal}}
-    </p>
+                <div class="form-row label-block input-text">
+                    <label>Idade Atual:</label>
+                    {{ form.idade_atual }}
+                </div>
 
-    <p>
-        <label>Sexo:</label>
-        {{form.sexo}}
-    </p>
 
-    <input type="submit" value="Simula..."/>
-</form>
+                <div class="form-row label-block input-text">
+                    <label>Idade Saída:</label>
+                    {{ form.idade_saida }}
+                </div>
+
+                <div class="form-row label-block input-text">
+                    <label>Rentabilidade Anual:</label>
+                    {{ form.rentabilidade_anual }}{{ form.rentabilidade_anual.label_suffix }}
+                </div>
+
+                <div class="form-row label-block input-text">
+                    <label>Contribuição Mensal:</label>
+                    {{ form.contribuicao_mensal }}
+                </div>
+
+                <div class="form-row label-block input-text">
+                    <label>Sexo:</label>
+                    {{ form.sexo }}
+                </div>
+
+                <input type="submit" value="Simula..."/>
+            </form>
+
+        </div>
+    </div>
+</section>
 </body>
 </html>

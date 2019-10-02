@@ -5,7 +5,7 @@ from prevpriv.core.forms import SimulatorForm
 
 def simulator(request):
     form = SimulatorForm(request.GET)
-
+    print(request.GET)
     if form.is_valid():
         saldo, renda_mensal_vitalicia = calcula(**form.cleaned_data)
 
@@ -16,5 +16,5 @@ def simulator(request):
         }
     else:
         context = {'form': form}
-    
+
     return render(request, 'index.html', context)

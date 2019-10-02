@@ -1,6 +1,8 @@
 from django.forms import Form, fields
 
 
+
+
 class SimulatorForm(Form):
     idade_atual = fields.IntegerField(min_value=0)
     idade_saida = fields.IntegerField(min_value=50)
