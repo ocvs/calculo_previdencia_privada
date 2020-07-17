@@ -1,13 +1,14 @@
 from django import template
 from django.contrib.humanize.templatetags.humanize import intcomma
 import locale
-locale.setlocale( locale.LC_ALL, 'pt-br' )
+
+locale.setlocale(locale.LC_ALL, '')
 register = template.Library()
 
 
 def currency(reais):
-    reais =locale.currency( round(float(reais)) , grouping=True)
-     #f'{round(float(reais), 2):06.2f}'
+    reais = locale.currency(round(float(reais)), grouping=True)
+    # f'{round(float(reais), 2):06.2f}'
     return reais
 
 
