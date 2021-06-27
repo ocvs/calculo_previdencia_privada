@@ -13,7 +13,7 @@ Tabua de sobrevivência
 taxa de juros da tábua
 
 """
-from decimal import Decimal
+
 
 from inputao import input as inputao
 
@@ -25,7 +25,7 @@ def calcula_diferimento_em_meses(idade_atual, idade_saida):
 
 
 def calcula_rentabilidade_mensal(rentabilidade_anual):
-    return ((1 + rentabilidade_anual / 100) ** Decimal(1 / 12)) - 1
+    return (((1 + (rentabilidade_anual) / float(100)) ** (1 / 12)) - 1)
 
 
 def calcula_evolucao_das_contribuicoes(idade_atual, idade_saida, rentabilidade_anual, contribuicao_mensal):
@@ -40,7 +40,7 @@ def calcula_evolucao_das_contribuicoes(idade_atual, idade_saida, rentabilidade_a
 
 
 def calcula_valor_renda_mensal_vitalicia(saldo, sexo, idade_saida):
-    fator_conversao_em_renda = Decimal(FAT('BREMS_NS', sexo, 'F', 0.02).ax[idade_saida])
+    fator_conversao_em_renda = FAT('BREMS_NS', sexo, 'F', 0.02).ax[idade_saida]
     return saldo / fator_conversao_em_renda
 
 
@@ -51,17 +51,9 @@ def calcula(idade_atual, idade_saida, rentabilidade_anual, contribuicao_mensal, 
 
 
 if __name__ == '__main__':
-    # idade_atual = inputao("Entre com sua idade em anos: ", int, '30')
-    # idade_saida = inputao("Com qual idade deseja iniciar a renda: ", int, '60')
-    # rentabilidade_anual = inputao("Defina a rentabilidade real anual dos investimentos ex: 4%a.a entre com valor 4: ",
-    #                               float, '4')
-    # contribuicao_mensal = inputao("Defina o valor que quer contribuir mensalmente: ", float, '100')
-    # sexo=inputao('Informe o sexo ("M" ou "F"',str,'M')
-
     idade_atual = inputao("Entre com sua idade em anos: ", int)
     idade_saida = inputao("Com qual idade deseja iniciar a renda: ", int)
-    rentabilidade_anual = inputao("Defina a rentabilidade real anual dos investimentos ex: 4%a.a entre com valor 4: ",
-                                  float)
+    rentabilidade_anual = inputao("Defina a rentabilidade real anual dos investimentos ex: 4%a.a entre com valor 4: ", float)
     contribuicao_mensal = inputao("Defina o valor que quer contribuir mensalmente: ", float)
     sexo = inputao('Informe o sexo ("M" ou "F"):', str)
 

@@ -4,7 +4,7 @@ from calculos.atuarial.tabuas_qx import qx_dict
 class FAT:
     __slots__ = ('tabua', 'juros_tabua', 'ax', 'Dx', 'Nx')
 
-    def __init__(self, tabua='AT2000_NS', sexo='M', sexo_benef='F', juros_tabua=0.00):
+    def __init__(self, tabua='BREMS_NS', sexo='M', sexo_benef='F', juros_tabua=0.00):
         """
 
         :param tabua:
