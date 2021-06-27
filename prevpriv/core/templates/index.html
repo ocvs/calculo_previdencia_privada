@@ -32,13 +32,15 @@
 
     <div class="content row padding-bottom-3 desktop-12 container">
         {% if renda_mensal_vitalicia %}
-            <div class="desktop-12">
+            <div class="desktop-11" style="color: #031034; background-color: #ffe2d5; padding: 20px">
 
                 <h2>Resultados da simulação</h2>
-                <h3>Saldo: {{ saldo|currency }}</h3>
-                <h3>Renda vitalicia sem continuidade: {{ renda_mensal_vitalicia|currency }}</h3>
+                <h5>Saldo: {{ saldo|currency }}</h5>
+                <h5>Renda vitalicia sem continuidade: {{ renda_mensal_vitalicia|currency }}</h5>
+                <h6 > Condição atuarial: Tábua BR - EMS com juros de 2%a.a.</h6 >
             </div>
         {% endif %}
+     <div class="desktop-12">
         <h1>Insira os dados para simulação</h1>
         <div class="desktop-6">
             <form action="." method="GET">
@@ -71,7 +73,7 @@
 
                 <input type="submit" value="Simula..."/>
             </form>
-
+        </div>
         </div>
     </div>
 </section>

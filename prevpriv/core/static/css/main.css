@@ -1,4 +1,4 @@
-/* Customização */
+/* Customização x */
 
 @font-face {
     font-family: 'sinkin_sans200_x_light';
@@ -86,11 +86,15 @@ h4 {
 }
 
 h5 {
-    padding: 6px 0 22px;
+    padding: 6px 0 6px;
+    line-height: 20px;
+    min-height: 20px;
 }
 
 h6 {
     padding: 13px 0 4px;
+    line-height: 20px;
+    min-height: 20px;
 }
 
 h1, h2 {
